@@ -27,9 +27,12 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         String localita=getItem(position).getLocalita();
         String prezzo=getItem(position).getPrezzo();
         String marca=getItem(position).getMarca();
+        String codice=getItem(position).getCodice();
+        String latitudine=getItem(position).getLatitudine();
+        String longitudine=getItem(position).getLongitudine();
 
 
-        Product user=new Product(nome,marca, prezzo, localita);
+        Product user=new Product(nome,marca, prezzo, localita, codice, latitudine, longitudine);
         LayoutInflater inflater=LayoutInflater.from(mContext);
 
         convertView= inflater.inflate(mResource, parent, false);
@@ -48,14 +51,9 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Button was clicked for list item " + getItem(position).getNome(), Toast.LENGTH_SHORT).show();
                 DB db=new DB(mContext);
                 StringBuilder sb=new StringBuilder();
-                db.Insert(getItem(position).getNome(), getItem(position).getPrezzo(), getItem(position).getLocalita(), getItem(position).getMarca());
-
-
-
-
+                db.Insert(getItem(position).getNome(), getItem(position).getPrezzo(), getItem(position).getLocalita(), getItem(position).getMarca(), getItem(position).getCodice(), getItem(position).getLatitudine(), getItem(position).getLongitudine());
             }
         });
 

@@ -1,18 +1,26 @@
 package com.example.celikapp20;
 
+import android.util.Log;
+
 public class Prodotto {
     private String Nome;
     private String Marca;
     private float Prezzo;
     private String Localita;
+    private Long Codice;
+    private double Latitudine;
+    private double Longitudine;
 
     public Prodotto(){}
 
-    public Prodotto(String an, String am, int ap, String al){
+    public Prodotto(String an, String am, int ap, String al, Long ac, long alat, long along){
         Nome=an;
         Marca=am;
         Prezzo=ap;
         Localita=al;
+        Codice=ac;
+        Latitudine=alat;
+        Longitudine=along;
     }
 
     public void setNome(String nome) {
@@ -45,5 +53,29 @@ public class Prodotto {
 
     public String getMarca() {
         return Marca;
+    }
+
+    public void setCodice(Long codice) {
+        Codice = codice;
+    }
+
+    public Long getCodice() {
+        return Codice;
+    }
+
+    public void setLongitudine(double longitudine) {
+        Longitudine = longitudine;
+    }
+
+    public double getLongitudine() {
+        return Longitudine;
+    }
+
+    public void setLatitudine(double latitudine) {
+        Latitudine = latitudine;
+    }
+
+    public double getLatitudine() {
+        return Latitudine;
     }
 }

@@ -8,6 +8,8 @@
 
     <TextView
         android:id="@+id/lstv1"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -16,6 +18,8 @@
 
     <TextView
         android:id="@+id/lstv2"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -24,6 +28,8 @@
 
     <TextView
         android:id="@+id/lstv3"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -31,6 +37,8 @@
         android:textAlignment="center" />
     <TextView
         android:layout_width="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_height="60dp"
         android:layout_weight="1"
         android:id="@+id/lstv4"
@@ -39,6 +47,8 @@
 
     <Button
         android:id="@+id/lsbutton1"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <PreferenceCategory
+        android:title="pref_ordine"
+        android:key="pref_ordine_category">
+        <ListPreference
+            android:key="pref_ordine"
+            android:title="Ordine prodotti"
+            android:summary="Seleziona come ordinare i prodotti, se in ordine di prezzo, di nome o di località"
+            android:dialogTitle="Ordine prodotti"
+            android:entries="@array/keys_ordine"
+            android:entryValues="@array/values_ordine"
+            android:defaultValue="0" />
+    </PreferenceCategory>
 </PreferenceScreen>

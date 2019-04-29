@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_lista_spesa"
             android:icon="@drawable/ic_lista_spesa"
-            android:title="Lisa della spesa" />
+            android:title="Lista della spesa" />
         <item
             android:id="@+id/nav_impostazioni"
             android:icon="@drawable/ic_impostazioni"
@@ -16,19 +16,10 @@
             android:id="@+id/nav_login"
             android:icon="@drawable/in_login"
             android:title="Login" />
+        <item
+            android:id="@+id/nav_barcode"
+            android:icon="@drawable/ic_action_name"
+            android:title="Barcode Reader"/>
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

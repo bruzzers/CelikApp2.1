@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 public class DB {
 
     public static final String DB_NAME = "date.db";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 8;
 
     public static final String LIST_TABLE = "product";
 
@@ -35,6 +35,15 @@ public class DB {
     public static final String PRODUCT_BRAND = "product_brand";
     public static final int PRODUCT_BRAND_COL = 4;
 
+    public static final String PRODUCT_CODE = "product_code";
+    public static final int PRODUCT_CODE_COL = 5;
+
+    public static final String PRODUCT_LATITUDE = "product_lat";
+    public static final int PRODUCT_LATITUDE_COL= 6;
+
+    public static final String PRODUCT_LONGITUDE = "product_long";
+    public static final int PRODUCT_LONGITUDE_COL= 7;
+
 
     public static final String CREATE_PRODUCT_TABLE =
             "CREATE TABLE "          +  LIST_TABLE + " (" +
@@ -42,7 +51,10 @@ public class DB {
                     PRODUCT_NAME     + " STRING , " +
                     PRODUCT_PRICE    + " STRING , " +
                     PRODUCT_LOCATION + " STRING, " +
-                    PRODUCT_BRAND    + " STRING );";
+                    PRODUCT_BRAND    + " STRING, " +
+                    PRODUCT_CODE     + " STRING, " +
+                    PRODUCT_LATITUDE + " STRING, " +
+                    PRODUCT_LONGITUDE + " STRING );";
 
     public static final String DROP_LIST_TABLE =
             "DROP TABLE IF EXISTS " + LIST_TABLE;
@@ -101,20 +113,23 @@ public class DB {
         return c;
     }
 
-    public void Insert(String name, String price, String location, String brand){
+    public void Insert(String name, String price, String location, String brand, String code, String latitude, String longitude){
         openWriteableDB();
         ContentValues content= new ContentValues();
         content.put(PRODUCT_NAME, name);
         content.put(PRODUCT_PRICE, price);
         content.put(PRODUCT_LOCATION, location);
         content.put(PRODUCT_BRAND, brand);
+        content.put(PRODUCT_CODE, code);
+        content.put(PRODUCT_LATITUDE, latitude);
+        content.put(PRODUCT_LONGITUDE, longitude);
         db.insert(LIST_TABLE, null, content);
         closeDB();
     }
 
-    public void Delete(String an, String al, String ap, String am){
+    public void Delete(String an, String al, String ap, String am, String ac){
         openWriteableDB();
-        db.delete(LIST_TABLE, PRODUCT_NAME + " =? AND " + PRODUCT_LOCATION + " =? AND " + PRODUCT_PRICE + " =? AND " + PRODUCT_BRAND + " =?", new String[] {an, al, ap, am} );
+        db.delete(LIST_TABLE, PRODUCT_NAME + " =? AND " + PRODUCT_LOCATION + " =? AND " + PRODUCT_PRICE + " =? AND " + PRODUCT_BRAND + " =? AND " + PRODUCT_CODE + " =?", new String[] {an, al, ap, am, ac} );
         closeDB();
     }
 
