@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "437554744385",
+    "firebase_url": "https://celikapp.firebaseio.com",
+    "project_id": "celikapp",
+    "storage_bucket": "celikapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437554744385:android:f14767c39eb39436",
+        "android_client_info": {
+          "package_name": "com.example.celikapp20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437554744385-1torj235msbcb1m4nqt4sru7susrnqpp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.celikapp20",
+            "certificate_hash": "2d685986ab1a54814122ed93435cac2003e8bee4"
+          }
+        },
+        {
+          "client_id": "437554744385-7ad4d6hdvoqinvlosopofhetp9g6hg84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNRFjBFZjFOwS2XtswuqpkodxYtxErhWg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437554744385-7ad4d6hdvoqinvlosopofhetp9g6hg84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
