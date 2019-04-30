@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     private SearchView sv;
     private LinearLayout ll;
     private TextView tv;
+    private ProgressBar pb;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference myRef;
     MapsDB db= new MapsDB(this);
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity
         listViewDatabase=(ListView) findViewById(R.id.ListViewDatabase);
         ll=(LinearLayout) findViewById(R.id.table);
         tv=(TextView) findViewById(R.id.TextViewEmpty);
+        pb=(ProgressBar) findViewById(R.id.progress_bar);
 
         PreferenceManager.setDefaultValues(this, R.xml.activity_settings, false);
         pref= PreferenceManager.getDefaultSharedPreferences(this);
@@ -203,6 +206,8 @@ public class MainActivity extends AppCompatActivity
 
     private void display() {
             final String text = sv.getQuery().toString();
+            tv.setVisibility(View.GONE);
+            pb.setVisibility(View.VISIBLE);
             myRef=database.getReference();
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -245,6 +250,7 @@ public class MainActivity extends AppCompatActivity
                     tv.setVisibility(View.GONE);
                     ll.setVisibility(View.VISIBLE);
                     ProductListAdapter adapter=new ProductListAdapter(MainActivity.this, R.layout.adapter_view_layout, array );
+                    pb.setVisibility(View.GONE);
                     listViewDatabase.setAdapter(adapter);
 
                     listViewDatabase.setOnItemClickListener(new AdapterView.OnItemClickListener() {
