@@ -2,8 +2,8 @@
 
     <string name="google_maps_API">AIzaSyD0bsU7d3L0b7LGdHOuhb0-pAxDcaEEFC8</string>
 
-    <string name="app_name">CelikApp2.0</string>
-    <string name="label_name"></string>
+    <string name="app_name">CelikApp</string>
+    <string name="label_name">CelikApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">CelikApp</string>
@@ -12,7 +12,6 @@
     <string name="action_settings">Settings</string>
     <string name="search_EditText">Cerca il prodotto</string>
     <string name="search_Button">Cerca</string>
-    <string name="textView1">Sei un celiaco infame</string>
     <string name="dialogTextView">Applicazione creata per la laurea universitaria,Ingegneria Informatica UNIGE</string>
     <string name="dialogTextViewAlert">Impossibile connettersi a internet.
     Prego riprovare con una connessione stabile</string>
@@ -32,6 +31,19 @@
         <item >0</item>
         <item >1</item>
         <item >2</item>
+    </string-array>
+
+    <string-array name="metodo_ordine">
+        <item >Tutti</item>
+        <item >Nome</item>
+        <item >Località</item>
+        <item>Marca</item>
+    </string-array>
+    <string-array name="values_metodo">
+        <item >0</item>
+        <item >1</item>
+        <item >2</item>
+        <item>3</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

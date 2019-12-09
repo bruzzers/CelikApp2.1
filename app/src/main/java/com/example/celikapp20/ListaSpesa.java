@@ -61,7 +61,7 @@ public class ListaSpesa extends AppCompatActivity implements GestureDetector.OnG
             }while (c.moveToNext());
         }
         else
-            Toast.makeText(this, "Nessun elemento trovato", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "La tua lista della spesa è vuota", Toast.LENGTH_SHORT).show();
 
         if(!listaspesa.isEmpty()){
             ListaSpesaAdapter lsadapter=new ListaSpesaAdapter(ListaSpesa.this, R.layout.lista_spesa_adapter_view_layout, listaspesa);
@@ -87,7 +87,7 @@ public class ListaSpesa extends AppCompatActivity implements GestureDetector.OnG
 
 
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {//notifiche
             @Override
             public void run() {
                 Intent i=new Intent(ListaSpesa.this, MainActivity.class);

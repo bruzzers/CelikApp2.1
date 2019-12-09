@@ -11,7 +11,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:textAlignment="center" />
@@ -21,7 +21,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:textAlignment="center" />
@@ -31,7 +31,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:textAlignment="center" />
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/lstv4"
         android:gravity="center"
@@ -50,8 +50,9 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:backgroundTint="#FF3A03"
         android:drawableBottom="@drawable/ic_menu_delete" />
 
 

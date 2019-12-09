@@ -168,30 +168,6 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
                             startActivity(opn);
 
 
-
-                            /*Dialog d = new Dialog(BarcodeReader.this);
-                            //Dialog d = new Dialog(BarcodeReader.this, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
-                            d.setTitle("About");
-                            d.setCancelable(true);
-                            d.setContentView(R.layout.barcode_dialog);
-
-                            d.setCancelable(false);
-                            d.show();
-                            TextView nome = (TextView) d.findViewById(R.id.name_barcode);
-                            TextView brand= (TextView) d.findViewById(R.id.brand_barcode);
-                            Button bt=(Button) d.findViewById(R.id.barcode_button);
-                            nome.setText(array.get(0).getNome());
-                            brand.setText(array.get(0).getMarca());
-                            bt.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    scannerView.stopCamera();
-                                    finish();
-                                    Intent open=new Intent(BarcodeReader.this, BarcodeReader.class);
-                                    startActivity(open);
-                                }
-                            });*/
-
                         }
                     }
                     else {
