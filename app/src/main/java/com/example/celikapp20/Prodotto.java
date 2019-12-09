@@ -7,13 +7,13 @@ public class Prodotto {
     private String Marca;
     private float Prezzo;
     private String Localita;
-    private Long Codice;
+    private String Codice;
     private double Latitudine;
     private double Longitudine;
 
     public Prodotto(){}
 
-    public Prodotto(String an, String am, int ap, String al, Long ac, long alat, long along){
+    public Prodotto(String an, String am, int ap, String al, String ac, long alat, long along){
         Nome=an;
         Marca=am;
         Prezzo=ap;
@@ -55,11 +55,11 @@ public class Prodotto {
         return Marca;
     }
 
-    public void setCodice(Long codice) {
+    public void setCodice(String codice) {
         Codice = codice;
     }
 
-    public Long getCodice() {
+    public String getCodice() {
         return Codice;
     }
 

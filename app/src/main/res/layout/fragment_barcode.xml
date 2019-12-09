@@ -6,16 +6,16 @@
     android:orientation="horizontal"
     >
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_weight="1"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
         android:id="@+id/barcode_name"
         android:text="BARILLA"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="40dp"
         android:id="@+id/barcode_brand"
-        android:layout_weight="1"
+        android:layout_weight="0.4"
         android:text="Barilla"/>
     <TextView
         android:layout_width="wrap_content"

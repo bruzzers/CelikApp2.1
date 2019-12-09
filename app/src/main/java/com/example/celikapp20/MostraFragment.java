@@ -38,7 +38,7 @@ public class MostraFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent open=new Intent(MostraFragment.super.getContext(), BarcodeReader.class);
+                    Intent open=new Intent(MostraFragment.super.getContext(), MainActivity.class);
                     startActivity(open);
                 }
             });

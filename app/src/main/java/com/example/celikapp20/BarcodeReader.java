@@ -150,7 +150,7 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
                     array.clear();
                     for(DataSnapshot ds: dataSnapshot.getChildren()) {
                         Prodotto value = ds.getValue(Prodotto.class);
-                        if(value.getCodice().toString().equals(resultCode)) {
+                        if(value.getCodice().equals(resultCode)) {
                             Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
                             array.add(p);
                         }
