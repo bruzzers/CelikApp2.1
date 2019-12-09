@@ -54,15 +54,22 @@ public class MainActivity extends AppCompatActivity
     private static final int PREZZO=0;
     private static final int NOME=1;
     private static final int LOCALITA=2;
+    private static final int TUTTO=0;
+    private static final int NOME1=1;
+    private static final int LOCALITA1=2;
+    private static final int MARCA1=3;
+
 
     private SharedPreferences pref;
     private int ordine=PREZZO;
+    private int metodo=TUTTO;
 
 
     @Override
     protected void onResume() {
         super.onResume();
         ordine=Integer.parseInt(pref.getString("pref_ordine", "0"));
+        metodo=Integer.parseInt(pref.getString("pref_ricerca", "0"));
     }
 
     @Override
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity
         PreferenceManager.setDefaultValues(this, R.xml.activity_settings, false);
         pref= PreferenceManager.getDefaultSharedPreferences(this);
         db.clean();
+
 
 
 
@@ -189,9 +197,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_impostazioni) {
             Intent open=new Intent(this, Settings.class);
             startActivity(open);
-        } else if (id == R.id.nav_login) {
-            Intent open= new Intent(this, Login.class);
-            startActivity(open);
         } else if (id==R.id.nav_barcode){
             Intent open= new Intent(this, BarcodeReader.class);
             startActivity(open);
@@ -218,10 +223,30 @@ public class MainActivity extends AppCompatActivity
                    array.clear();
                    for(DataSnapshot ds: dataSnapshot.getChildren()) {
                         Prodotto value = ds.getValue(Prodotto.class);
-                        if (value.getMarca().equals(text) || value.getNome().contains(text) || value.getLocalita().contains(text)) {
-                            Product p= new Product(value.getNome(), value.getMarca(),String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
-                            array.add(p);
+                        if (metodo == TUTTO) {
+                            if (value.getMarca().contains(text) || value.getNome().contains(text) || value.getLocalita().contains(text) || String.valueOf(value.getCodice()).equals(text)) {
+                                Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
+                                array.add(p);
 
+                            }
+                        }
+                        else if(metodo==NOME1){
+                            if (value.getNome().contains(text)) {
+                                Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
+                                array.add(p);
+                            }
+                        }
+                        else if(metodo==LOCALITA1){
+                            if (value.getLocalita().contains(text)) {
+                                Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
+                                array.add(p);
+                            }
+                        }
+                        else if(metodo==MARCA1){
+                            if (value.getMarca().contains(text)) {
+                                Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
+                                array.add(p);
+                            }
                         }
                     }
                    if(ordine==PREZZO) {
