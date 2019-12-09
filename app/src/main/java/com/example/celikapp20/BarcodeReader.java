@@ -42,6 +42,7 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
     DatabaseReference myRef;
     private GestureDetector detector;
     private boolean mCameraPermissionGranted=false;
+    BarcodeProductDB db=new BarcodeProductDB(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -55,7 +56,9 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
 
 
        }
-        @Override
+
+
+    @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.barcode_button:
@@ -84,8 +87,8 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onPause() {
         super.onPause();
-        //scannerView.stopCamera();
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -154,7 +157,20 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
                     }
                     if(!array.isEmpty()){
                         if(!isFinishing()) {
-                            Dialog d = new Dialog(BarcodeReader.this);
+                            scannerView.stopCamera();
+                            finish();
+                            Intent open=new Intent(BarcodeReader.this, BarcodeReader.class);
+                            startActivity(open);
+                            db.clean();
+                            db.insert(array.get(0).getNome(), array.get(0).getMarca(), resultCode);
+
+                            Intent opn=new Intent(BarcodeReader.this, BarcodeProduct.class);
+                            startActivity(opn);
+
+
+
+                            /*Dialog d = new Dialog(BarcodeReader.this);
+                            //Dialog d = new Dialog(BarcodeReader.this, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
                             d.setTitle("About");
                             d.setCancelable(true);
                             d.setContentView(R.layout.barcode_dialog);
@@ -174,12 +190,12 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
                                     Intent open=new Intent(BarcodeReader.this, BarcodeReader.class);
                                     startActivity(open);
                                 }
-                            });
+                            });*/
 
                         }
                     }
                     else {
-                        Toast.makeText(BarcodeReader.this, "VUOTO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BarcodeReader.this, "Il prodotto NON è senza glutine", Toast.LENGTH_LONG).show();
                         scannerView.stopCamera();
                         finish();
                         Intent open=new Intent(BarcodeReader.this, BarcodeReader.class);

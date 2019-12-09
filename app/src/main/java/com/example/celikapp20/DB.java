@@ -113,17 +113,29 @@ public class DB {
         return c;
     }
 
+    public Cursor getNProd(String name, String price, String location, String brand, String code, String latitude, String longitude){
+        Cursor c=db.rawQuery("SELECT * FROM product WHERE " + PRODUCT_NAME + "=? AND " + PRODUCT_PRICE +"=? AND "
+                        + PRODUCT_LOCATION + "=? AND " + PRODUCT_BRAND + "=? AND " + PRODUCT_CODE + "=? AND " +
+                PRODUCT_LATITUDE + "=? AND " + PRODUCT_LONGITUDE + "=?"
+                , new String[]{name, price, location, brand, code, latitude, longitude } );
+        return c;
+    }
+
     public void Insert(String name, String price, String location, String brand, String code, String latitude, String longitude){
         openWriteableDB();
-        ContentValues content= new ContentValues();
-        content.put(PRODUCT_NAME, name);
-        content.put(PRODUCT_PRICE, price);
-        content.put(PRODUCT_LOCATION, location);
-        content.put(PRODUCT_BRAND, brand);
-        content.put(PRODUCT_CODE, code);
-        content.put(PRODUCT_LATITUDE, latitude);
-        content.put(PRODUCT_LONGITUDE, longitude);
-        db.insert(LIST_TABLE, null, content);
+        Cursor c= getNProd(name, price, location, brand, code, latitude, longitude);
+        if(c.moveToFirst()){}
+        else {
+            ContentValues content = new ContentValues();
+            content.put(PRODUCT_NAME, name);
+            content.put(PRODUCT_PRICE, price);
+            content.put(PRODUCT_LOCATION, location);
+            content.put(PRODUCT_BRAND, brand);
+            content.put(PRODUCT_CODE, code);
+            content.put(PRODUCT_LATITUDE, latitude);
+            content.put(PRODUCT_LONGITUDE, longitude);
+            db.insert(LIST_TABLE, null, content);
+        }
         closeDB();
     }
 

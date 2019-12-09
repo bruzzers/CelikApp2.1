@@ -18,6 +18,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,8 +52,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             double latitude= Double.parseDouble(c.getString(2));
             double longitude= Double.parseDouble(c.getString(3));
             LatLng position = new LatLng(latitude, longitude);
-            mMap.addMarker(new MarkerOptions().position(position).title(c.getString(1)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 13f));
+            mMap.addMarker(new MarkerOptions().position(position)
+                    .title(c.getString(1)));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 11f));
         }
         //getDeviceLocation();
         db.clean();
@@ -98,9 +102,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    /*private void getDeviceLocation(){
+    private void getDeviceLocation(){
         mFusedLoacionProviderClient= LocationServices.getFusedLocationProviderClient(this);
-
+        Log.d(TAG,"I'm in getDeviceLocation");
         try {
             if(mLocationPermissionGranted){
                 Task location = mFusedLoacionProviderClient.getLastLocation();
@@ -125,6 +129,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }catch (SecurityException e){
             Log.d(TAG, "getDeviceLocation: Security Exception : " + e.getMessage());
         }
-    }*/
+    }
 
 }

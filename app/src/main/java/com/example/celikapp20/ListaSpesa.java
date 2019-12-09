@@ -1,12 +1,16 @@
 package com.example.celikapp20;
 
+import android.app.AlarmManager;
+import android.app.ListActivity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.RingtoneManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.TestLooperManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.NotificationCompat;
@@ -23,8 +27,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static android.app.Notification.VISIBILITY_PUBLIC;
+import static java.lang.Thread.sleep;
 
 public class ListaSpesa extends AppCompatActivity implements GestureDetector.OnGestureListener {
+    private static final int REQUEST_CODE =0 ;
     private ListView ListaSpesaListView;
     private LinearLayout ll;
     private GestureDetector detector;
@@ -80,24 +86,31 @@ public class ListaSpesa extends AppCompatActivity implements GestureDetector.OnG
 
 
 
-         /*Intent i=new Intent(this, MainActivity.class);
-        PendingIntent pi=PendingIntent.getActivity(this, 0, i, 0);
-        long[] pattern={250,250};
 
-        NotificationCompat.Builder n=new NotificationCompat.Builder(this)
-                .setContentTitle("Svuotare Lista della Spesa")
-                .setContentText("Hai degli elementi nella lista della spesa")
-                .setSmallIcon(R.drawable.ic_notify)
-                .setContentIntent(pi)
-                .setVisibility(VISIBILITY_PUBLIC)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setVibrate(pattern)
-                .setWhen(10000)
-                .setShowWhen(true)
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setAutoCancel(true);
-        NotificationManager nm=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(0, n.build());*/
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i=new Intent(ListaSpesa.this, MainActivity.class);
+                PendingIntent pi=PendingIntent.getActivity(ListaSpesa.this, 0, i, 0);
+                long[] pattern={250,250};
+                NotificationCompat.Builder n=new NotificationCompat.Builder(ListaSpesa.this)
+                        .setContentTitle("Hai comprato tutto?")
+                        .setContentText("Ricorda di controllare i tuoi prodotti nella lista della spesa")
+                        .setSmallIcon(R.drawable.ic_notify)
+                        .setContentIntent(pi)
+                        .setVisibility(VISIBILITY_PUBLIC)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setVibrate(pattern)
+                        .setShowWhen(true)
+                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                        .setAutoCancel(true);
+                NotificationManager nm=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                nm.notify(0, n.build());
+            }
+        },60000);
+
+
+
 
 
 
