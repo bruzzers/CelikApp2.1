@@ -9,7 +9,7 @@ import android.util.Log;
 
 public class BarcodeProductDB {
     public static final String DB_NAME = "Barcode.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     public static final String LIST_TABLE = "barcode_product";
 

@@ -10,7 +10,7 @@ import android.util.Log;
 public class MapsDB {
 
     public static final String DB_NAME = "Maps.db";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 6;
 
     public static final String LIST_TABLE = "product_position";
 
@@ -26,12 +26,16 @@ public class MapsDB {
     public static final String PRODUCT_LONGITUDE = "product_position_longitude";
     public static final int PRODUCT_LONGITUDE_COL = 3;
 
+    public static final String PRODUCT_LOCATION = "product_position_location";
+    public static final int PRODUCT_LOCATION_COL= 4;
+
     public static final String CREATE_PRODUCT_TABLE =
             "CREATE TABLE "          +  LIST_TABLE + " (" +
                     PRODUCT_ID       + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     PRODUCT_NAME     + " STRING , " +
                     PRODUCT_LATITUDE + " STRING, " +
-                    PRODUCT_LONGITUDE + " STRING );";
+                    PRODUCT_LONGITUDE + " STRING, " +
+                    PRODUCT_LOCATION + " STRING );";
 
     public static final String DROP_LIST_TABLE =
             "DROP TABLE IF EXISTS " + LIST_TABLE;
@@ -82,12 +86,13 @@ public class MapsDB {
             db.close();
     }
 
-    public void insert(String name, String latitude, String longitude){
+    public void insert(String name, String latitude, String longitude, String location){
         openWriteableDB();
         ContentValues content= new ContentValues();
         content.put(PRODUCT_NAME, name);
         content.put(PRODUCT_LATITUDE, latitude);
         content.put(PRODUCT_LONGITUDE, longitude);
+        content.put(PRODUCT_LOCATION, location);
         db.insert(LIST_TABLE, null, content);
         closeDB();
     }

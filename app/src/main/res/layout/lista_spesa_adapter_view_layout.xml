@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/lstv2"
@@ -24,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/lstv3"
@@ -34,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="18dp"/>
     <TextView
         android:layout_width="match_parent"
         android:focusable="false"
@@ -43,16 +46,18 @@
         android:layout_weight="1"
         android:id="@+id/lstv4"
         android:gravity="center"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/lsbutton1"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="#FF3A03"
+        android:backgroundTint="#C62828"
+        android:background="@drawable/rounded_button"
         android:drawableBottom="@drawable/ic_menu_delete" />
 
 

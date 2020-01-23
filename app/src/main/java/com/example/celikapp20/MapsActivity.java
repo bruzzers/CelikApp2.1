@@ -52,8 +52,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             double latitude= Double.parseDouble(c.getString(2));
             double longitude= Double.parseDouble(c.getString(3));
             LatLng position = new LatLng(latitude, longitude);
+            String t= c.getString(4);
+            String[] t1=t.split(" ", 2);
             mMap.addMarker(new MarkerOptions().position(position)
-                    .title(c.getString(1)));
+                    .title(t1[0]));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 11f));
         }
         //getDeviceLocation();

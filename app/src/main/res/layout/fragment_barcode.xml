@@ -10,24 +10,29 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.3"
         android:id="@+id/barcode_name"
+        android:textSize="20dp"
         android:text="BARILLA"/>
     <TextView
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:id="@+id/barcode_brand"
         android:layout_weight="0.4"
+        android:textSize="20dp"
         android:text="Barilla"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_weight="1"
         android:id="@+id/barcode_code"
+        android:textSize="20dp"
         android:text="800"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:focusable="false"
         android:id="@+id/barcode_button"
-        android:drawableBottom="@drawable/ic_search"/>
+        android:backgroundTint="#BBB8"
+        android:drawableBottom="@drawable/ic_search"
+        android:background="@drawable/rounded_button"/>
 
 </LinearLayout>

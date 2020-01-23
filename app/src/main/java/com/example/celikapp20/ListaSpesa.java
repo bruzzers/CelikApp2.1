@@ -70,7 +70,7 @@ public class ListaSpesa extends AppCompatActivity implements GestureDetector.OnG
             ListaSpesaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    db1.insert(listaspesa.get(position).getNome(),listaspesa.get(position).getLatitudine(), listaspesa.get(position).getLongitudine() );
+                    db1.insert(listaspesa.get(position).getNome(),listaspesa.get(position).getLatitudine(), listaspesa.get(position).getLongitudine(), listaspesa.get(position).getLocalita() );
                     Intent open=new Intent(ListaSpesa.this, MapsActivity.class);
                     startActivity(open);
                 }

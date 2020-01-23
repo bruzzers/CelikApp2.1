@@ -54,6 +54,7 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
                 DB db=new DB(mContext);
                 StringBuilder sb=new StringBuilder();
                 db.Insert(getItem(position).getNome(), getItem(position).getPrezzo(), getItem(position).getLocalita(), getItem(position).getMarca(), getItem(position).getCodice(), getItem(position).getLatitudine(), getItem(position).getLongitudine());
+                Toast.makeText(mContext, "Aggiunto alla lista della spesa", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -39,6 +39,7 @@ public class MostraFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent open=new Intent(MostraFragment.super.getContext(), MainActivity.class);
+                    open.putExtra("nome", nome);
                     startActivity(open);
                 }
             });

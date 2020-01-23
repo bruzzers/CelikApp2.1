@@ -78,6 +78,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        String newString=null;
+        Bundle extras=getIntent().getExtras();
+        if(extras!=null){
+            newString=extras.getString("nome");
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,6 +98,7 @@ public class MainActivity extends AppCompatActivity
         ll=(LinearLayout) findViewById(R.id.table);
         tv=(TextView) findViewById(R.id.TextViewEmpty);
         pb=(ProgressBar) findViewById(R.id.progress_bar);
+        sv.setQuery(newString, false);
 
         PreferenceManager.setDefaultValues(this, R.xml.activity_settings, false);
         pref= PreferenceManager.getDefaultSharedPreferences(this);
@@ -272,6 +278,12 @@ public class MainActivity extends AppCompatActivity
                            }
                        });
                    }
+                    if(array.isEmpty()){
+                        Toast.makeText(MainActivity.this, "Nessun prodotto trovato", Toast.LENGTH_SHORT).show();
+                        tv.setVisibility(View.GONE);
+                        pb.setVisibility(View.GONE);
+                    }
+                    else{
                     tv.setVisibility(View.GONE);
                     ll.setVisibility(View.VISIBLE);
                     ProductListAdapter adapter=new ProductListAdapter(MainActivity.this, R.layout.adapter_view_layout, array );
@@ -281,11 +293,11 @@ public class MainActivity extends AppCompatActivity
                     listViewDatabase.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            db.insert(array.get(position).getNome(),array.get(position).getLatitudine(), array.get(position).getLongitudine() );
+                            db.insert(array.get(position).getNome(),array.get(position).getLatitudine(), array.get(position).getLongitudine(), array.get(position).getLocalita() );
                             Intent open=new Intent(MainActivity.this, MapsActivity.class);
                             startActivity(open);
                         }
-                    });
+                    });}
                 }
 
                 @Override

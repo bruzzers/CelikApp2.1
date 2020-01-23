@@ -135,7 +135,6 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
         @Override
         public void handleResult(com.google.zxing.Result result) {
             final String resultCode= result.getText();
-            Toast.makeText(BarcodeReader.this, resultCode, Toast.LENGTH_SHORT).show();
 
 
 
@@ -151,8 +150,9 @@ public class BarcodeReader extends AppCompatActivity implements View.OnClickList
                     for(DataSnapshot ds: dataSnapshot.getChildren()) {
                         Prodotto value = ds.getValue(Prodotto.class);
                         if(value.getCodice().equals(resultCode)) {
-                            Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), String.valueOf(value.getCodice()), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
+                            Product p = new Product(value.getNome(), value.getMarca(), String.valueOf(value.getPrezzo()), value.getLocalita(), value.getCodice(), String.valueOf(value.getLatitudine()), String.valueOf(value.getLongitudine()));
                             array.add(p);
+
                         }
                     }
                     if(!array.isEmpty()){
